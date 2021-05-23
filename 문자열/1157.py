@@ -1,24 +1,17 @@
-import sys
+string = input().upper()
 
-string = sys.stdin.readline().rstrip()
-string = string.upper()
-
+cnt = {}
 check = []
-dic = {}
 
-while string:
-    if string[0] in dic:
-        dic[string[0]] += 1
-    else:
-        dic[string[0]] = 1
-    string = string[1:]
+for s in set(string):
+    cnt[s] = string.count(s)
 
-print(dic)
-max = max(dic.values())
+max_v = max(cnt.values())
 
-for key in dic.keys():
-    if dic[key] == max:
+for key in cnt.keys():
+    if cnt[key] == max_v:
         check.append(key)
+
 
 if len(check) >= 2:
     print("?")
